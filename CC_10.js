@@ -48,11 +48,26 @@ class Inventory {
     //Task 4 Implemented Order Management
     placeOrder(orderId, product, quantity) {
         if(product.stock >= quantity) {
-            const order = new Order(orderId, product, quantity);
-            this.order.push(order);
+            const order = new Order(orderId, product, quantity); // new order
+            this.order.push(order); // adds an order
         }
     }
     listOrders (){
-        this.orders.forEach(order => console.log(order.getOrderDetails()));
+        this.orders.forEach(order => console.log(order.getOrderDetails())); // lists the orders 
+    }; 
+    //Task 5 Implemented Prodcut Restocking
+    restockProduct(productId, quantity) {
+        const product = this.products.find((prod)=> prod.id === productId); // finds the product
+        product.stock += quantity; // Restocks the product
     }
-}
+};
+const inventory = new Inventory();
+inventory.addProduct(prod1);
+inventory.listProduct();
+
+inventory.placeOrder(601, prod1, 2);
+inventory.listOrders(); // Order ID: 601, Product: Laptop, Quantity: 2, Total Price: $2400
+console.log(prod1.getDetails());// Product: Laptop, ID: 101, Price: $1200, Stock: 3
+
+inventory.restockProduct(101, 5); 
+console.log(prod1.getDetails()); // Product: Laptop, ID: 101, Price: $1200, Stock: 8
