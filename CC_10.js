@@ -33,3 +33,16 @@ class Order {
 const order1 = new Order(501, prod1, 2);
 console.log(order1.getOrderDetails()); // Order ID: 501, Product: Laptop, Qauntity: 2, Total Price: $2400
 console.log(prod1.getDetails()); // Product: Laptop, ID: 101, Price: $1200, Stock: 5
+//Task 3 Created Inventory Class
+class Inventory {
+    constructor(){
+        this.product = [];
+        this.orders = [];
+    }
+    addProduct(product) {
+        this.product.push(product);
+    }
+    listProduct(){
+        this.products.forEach(product => console.log(product.getDetails()));
+    }
+}
