@@ -27,9 +27,9 @@ class Order {
         this.product.updateStock(quantity);
     }
     getOrderDetails(){
-        return `Order ID: ${this.orderID}, Product: ${this.product}, Quantity: ${this.quantity}, Total Price: $${this.product.price * this.quantity}`;
+        return `Order ID: ${this.orderId}, Product: ${this.product.name}, Quantity: ${this.quantity}, Total Price: $${this.product.price * this.quantity}`;
     };
 };
 const order1 = new Order(501, prod1, 2);
-console.log(order1.getOrderDetails());
-console.log(prod1.getDetails());
+console.log(order1.getOrderDetails()); // Order ID: 501, Product: Laptop, Qauntity: 2, Total Price: $2400
+console.log(prod1.getDetails()); // Product: Laptop, ID: 101, Price: $1200, Stock: 5
